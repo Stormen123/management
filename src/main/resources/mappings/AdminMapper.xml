@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.management.b1.dao.IAdminDAOmebc">
+
+	<select id="adminNameSearch" resultType='CustomerDTO'>
+		SELECT *
+		FROM CUSTOMER
+		WHERE 
+			CSTMER_NAME = #{cstmr_name}
+		AND
+		    ADMIN_CHECK = 'Y'
+	</select>
+	
+	<select id="adminList" resultType="CustomerDTO">
+		SELECT *
+		FROM CUSTOMER
+		WHERE
+			ADMIN_CHECK = 'Y'
+	</select>
+	
+	<insert id="adminInsert">
+		INSERT INTO CUSTOMER
+		VALUES
+			(customer_seq.nextval, 
+			#{cstmr_id}, 
+			#{cstmr_password}, 
+			#{cstmr_name}, 
+			'1',
+			#{cstmr_mail},
+			'1',
+			'1', 
+			'관리',
+			'Y')
+	</insert>
+	
+	<update id="adminUpdate">
+		UPDATE ADMIN SET
+			ADMIN_ID = #{admin_id},
+			ADMIN_PASSWORD = #{admin_password},
+			ADMIN_NAME = #{admin_name},
+			ADMIN_GRADE = #{admin_grade},
+			ADMIN_CHECK = #{admin_check}
+		WHERE 
+			ADMIN_CODE = #{admin_code}
+	</update>
+	
+	<delete id="adminDelete">
+		DELETE FROM ADMIN 
+		WHERE 
+			ADMIN_CODE = #{admin_code}
+	</delete>
+	
+</mapper>

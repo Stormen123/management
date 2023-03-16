@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.management.b1.dao.ICommonDAOmebc">
+
+	<select id="commonList" resultType='CommonDTO'>
+		SELECT *
+		FROM COMMON
+		ORDER BY COM_CODE
+	</select>
+	
+	<select id="commonOne" resultType="CommonDTO">
+		SELECT *
+		FROM   COMMON
+		WHERE  COM_CODE = #{com_code}
+	</select>
+	
+	<insert id="commonInsert">
+		INSERT INTO COMMON
+		VALUES
+			(common_seq.nextval, 
+			#{com_name})
+	</insert>
+	
+	<update id="commonUpdate">
+		UPDATE COMMON SET
+			COM_NAME = #{com_name}
+		WHERE 
+			COM_CODE = #{com_code}
+	</update>
+	
+	<delete id="commonDelete">
+		DELETE FROM COMMON
+		WHERE 
+			COM_CODE = #{com_code}
+	</delete>
+	
+</mapper>

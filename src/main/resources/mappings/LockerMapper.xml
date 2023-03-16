@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.management.b1.dao.ILockerDAOmebc">
+
+	<select id="lockerList" resultType='LockerDTO'>
+		SELECT *
+		FROM LOCKER
+		ORDER BY LOC_NO
+	</select>
+	
+	<select id="lockerOne" resultType='LockerDTO'>
+		SELECT *
+		FROM LOCKER
+		WHERE 
+			LOC_NO = #{loc_no}
+	</select>
+	
+	<insert id="lockerInsert">
+		INSERT INTO LOCKER
+			(LOC_NO)
+		VALUES
+			(#{loc_no})
+	</insert>
+	
+	<update id="lockerUpdate">
+		UPDATE LOCKER SET
+			LOC_USE = #{loc_use}
+		WHERE 
+			LOC_NO = #{loc_no}
+	</update>
+	
+	<delete id="lockerDelete">
+		DELETE FROM LOCKER
+		WHERE 
+			LOC_NO = #{loc_no}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.management.b1.dao.ISignUpDAO">
+
+	<select id="idCheck" resultType='CustomerDTO'>
+		SELECT *
+		FROM CUSTOMER
+		WHERE 
+			CSTMR_ID = #{cstmr_id}
+	</select>
+	
+	<select id="emailCheck" resultType='CustomerDTO'>
+		SELECT *
+		FROM   CUSTOMER
+		WHERE  CSTMR_EMAIL = #{cstmr_email}
+	</select>
+	
+</mapper>

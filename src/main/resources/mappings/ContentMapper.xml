@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.management.b1.dao.IContentDAOmebc">
+
+	<select id="contentList" resultType='ContentDTO'>
+		SELECT *
+		FROM CONTENT
+		WHERE 
+			COM_CODE = #{com_code}
+		ORDER BY CONT_DETAIL
+	</select>
+	
+	<select id="contentOne" resultType="ContentDTO">
+		SELECT *
+		FROM   CONTENT
+		WHERE  COM_CODE = #{com_code}
+		AND    CONT_DETAIL = #{cont_detail}
+	</select>
+	
+	<insert id="contentInsert">
+		INSERT INTO CONTENT
+		VALUES
+			(#{com_code},
+			(select nvl(max(cont_detail),0)+1 
+			 from content 
+			 where com_code = #{com_code}),
+			#{cont_name},
+			#{cont_rank})
+	</insert>
+	
+	<update id="contentUpdate">
+		UPDATE CONTENT SET
+			CONT_NAME = #{cont_name}
+			CONT_RANK = #{cont_rank}
+		WHERE 
+			COM_CODE = #{com_code}
+		AND
+			CONT_DETAIL = #{cont_detail}
+	</update>
+	
+	<delete id="contentDelete">
+		DELETE FROM CONTENT
+		WHERE 
+			COM_CODE = #{com_code}
+		AND
+			CONT_DETAIL = #{cont_detail}
+	</delete>
+	
+</mapper>

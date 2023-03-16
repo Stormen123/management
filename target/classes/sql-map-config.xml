@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.management.b1.dto.AdminDTO" alias="AdminDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.AmountDTO" alias="AmountDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.CommonDTO" alias="CommonDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.ContentDTO" alias="ContentDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.CustomerDTO" alias="CustomerDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.GradeCountDTO" alias="GradeCountDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.LockerDTO" alias="LockerDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.LockerSearchDTO" alias="LockerSearchDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.LocRegistDTO" alias="LocRegistDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.MemberCountDTO" alias="MemberCountDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.MemberDTO" alias="MemberDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.MemberListDTO" alias="MemberListDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.RefundDTO" alias="RefundDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.RegistrationDTO" alias="RegistrationDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.ScheduleDTO" alias="ScheduleDTO"></typeAlias>
+		<typeAlias type="com.management.b1.dto.SearchDTO" alias="SearchDTO"></typeAlias>
+	</typeAliases>
+</configuration>

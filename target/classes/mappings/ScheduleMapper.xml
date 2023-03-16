@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.management.b1.dao.IScheduleDAOmebc">
+	
+	<select id="scheduleList" resultType='ScheduleDTO'>
+		SELECT *
+		FROM SCHEDULE
+		ORDER BY SCHEDULE_CODE
+	</select>
+	
+	<select id="scheduleOne" resultType="ScheduleDTO">
+		SELECT *
+		FROM   SCHEDULE
+		WHERE  SCH_CODE = #{sch_code}
+	</select>
+	
+	<insert id="scheduleInsert">
+		INSERT INTO SCHEDULE
+			(sch_code, 
+			sch_item, 
+			sch_class, 
+			sch_time,
+			sch_week, 
+			sch_day,
+			sch_psncpa)
+		VALUES
+			(schedule_seq.nextval, 
+			#{sch_item}, 
+			#{sch_class}, 
+			#{sch_time},
+			#{sch_week}, 
+			#{sch_day}, 
+			#{sch_psncpa})
+	</insert>
+	
+	<update id="scheduleUpdate">
+		UPDATE SCHEDULE SET
+			SCH_ITEM = #{sch_item},
+			SCH_CLASS = #{sch_class},
+			SCH_TIME = #{sch_time},
+			SCH_WEEK = #{sch_week},
+			SCH_DAY = #{sch_day},
+			SCH_PSNCPA = #{sch_psncpa},
+			SCH_OPEN = #{sch_open}
+		WHERE
+			SCH_CODE = #{sch_code}
+		
+	</update>
+	
+	<delete id="scheduleDelete">
+		DELETE FROM SCHEDULE
+		WHERE 
+			SCH_CODE = #{sch_code}
+	</delete>
+	
+</mapper>
