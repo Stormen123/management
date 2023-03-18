@@ -1,173 +1,163 @@
-
 /* Drop Tables */
-
-DROP TABLE ADMIN CASCADE CONSTRAINTS;
-DROP TABLE AMOUNT CASCADE CONSTRAINTS;
-DROP TABLE CONTENT CASCADE CONSTRAINTS;
-DROP TABLE COMMON CASCADE CONSTRAINTS;
-DROP TABLE CUSTOMER CASCADE CONSTRAINTS;
-DROP TABLE LOCKER_REGISTRATION CASCADE CONSTRAINTS;
-DROP TABLE LOCKER CASCADE CONSTRAINTS;
-DROP TABLE REGISTRATION CASCADE CONSTRAINTS;
-DROP TABLE MEMBER CASCADE CONSTRAINTS;
-DROP TABLE SCHEDULE CASCADE CONSTRAINTS;
-
-
+drop table admin cascade constraints;
+drop table amount cascade constraints;
+drop table content cascade constraints;
+drop table common cascade constraints;
+drop table customer cascade constraints;
+drop table locker_registration cascade constraints;
+drop table locker cascade constraints;
+drop table registration cascade constraints;
+drop table member cascade constraints;
+drop table schedule cascade constraints;
 
 
 /* Create Tables */
-
-CREATE TABLE ADMIN
+create table admin
 (
-	ADMIN_CODE varchar2(2) NOT NULL,
-	ADMIN_ID varchar2(20) NOT NULL UNIQUE,
-	ADMIN_PASSWORD varchar2(15) NOT NULL,
-	ADMIN_NAME varchar2(30),
-	ADMIN_GRADE varchar2(15) NOT NULL,
-	ADMIN_CHECK char(1) DEFAULT 'Y' NOT NULL,
-	PRIMARY KEY (ADMIN_CODE)
+    admin_code varchar2 (2) not null,
+    admin_id varchar2 (20) not null unique,
+    admin_password varchar2 (15) not null,
+    admin_name varchar2 (30),
+    admin_grade varchar2 (15) not null,
+    admin_check char(1) default 'Y' not null,
+    primary key (admin_code)
 );
 
 
-CREATE TABLE AMOUNT
+create table amount
 (
-	AMT_CODE varchar2(2) NOT NULL,
-	AMT_GRADE varchar2(25) NOT NULL,
-	AMT_ITEM varchar2(15) NOT NULL,
-	AMT_DAY varchar2(25) NOT NULL,
-	AMT_MONTH varchar2(10) NOT NULL,
-	AMT_AMOUNT varchar2(6) NOT NULL,
-	PRIMARY KEY (AMT_CODE)
+    amt_code varchar2 (2) not null,
+    amt_grade varchar2 (25) not null,
+    amt_item varchar2 (15) not null,
+    amt_day varchar2 (25) not null,
+    amt_month varchar2 (10) not null,
+    amt_amount varchar2 (6) not null,
+    primary key (amt_code)
 );
 
 
-CREATE TABLE COMMON
+create table common
 (
-	COM_CODE varchar2(2) NOT NULL,
-	COM_NAME varchar2(9) NOT NULL,
-	PRIMARY KEY (COM_CODE)
+    com_code varchar2 (2) not null,
+    com_name varchar2 (9) not null,
+    primary key (com_code)
 );
 
 
-CREATE TABLE CONTENT
+create table content
 (
-	COM_CODE varchar2(2) NOT NULL,
-	CONT_DETAIL varchar2(2) NOT NULL,
-	CONT_NAME varchar2(25) NOT NULL,
-	CONT_RANK varchar2(2),
-	PRIMARY KEY (COM_CODE, CONT_DETAIL)
+    com_code varchar2 (2) not null,
+    cont_detail varchar2 (2) not null,
+    cont_name varchar2 (25) not null,
+    cont_rank varchar2 (2),
+    primary key (com_code, cont_detail)
 );
 
 
-CREATE TABLE CUSTOMER
+create table customer
 (
-	CSTMR_CODE varchar2(5) NOT NULL,
-	CSTMR_ID varchar2(20) NOT NULL UNIQUE,
-	CSTMR_PASSWORD varchar2(15) NOT NULL,
-	CSTMR_NAME varchar2(30) NOT NULL,
-	CSTMR_ADRES varchar2(80) NOT NULL,
-	CSTMR_MAIL varchar2(40) NOT NULL UNIQUE,
-	CSTMR_PHONE varchar2(13) NOT NULL,
-	CSTMR_BRTHDY varchar2(8) NOT NULL,
-	CSTMR_SEXDSTN varchar2(6) NOT NULL,
-	ADMIN_CHECK char(1) DEFAULT 'N' NOT NULL,
-	PRIMARY KEY (CSTMR_CODE)
+    cstmr_code varchar2 (5) not null,
+    cstmr_id varchar2 (20) not null unique,
+    cstmr_password varchar2 (15) not null,
+    cstmr_name varchar2 (30) not null,
+    cstmr_adres varchar2 (80) not null,
+    cstmr_mail varchar2 (40) not null unique,
+    cstmr_phone varchar2 (13) not null,
+    cstmr_brthdy varchar2 (8) not null,
+    cstmr_sexdstn varchar2 (6) not null,
+    admin_check char(1) default 'N' not null,
+    primary key (cstmr_code)
 );
 
 
-CREATE TABLE LOCKER
+create table locker
 (
-	LOC_NO varchar2(3) NOT NULL,
-	LOC_USE char(1) DEFAULT 'N' NOT NULL,
-	PRIMARY KEY (LOC_NO)
+    loc_no varchar2 (3) not null,
+    loc_use char(1) default 'N' not null,
+    primary key (loc_no)
 );
 
 
-CREATE TABLE LOCKER_REGISTRATION
+create table locker_registration
 (
-	LOC_NO varchar2(3) NOT NULL,
-	LR_REGDATE varchar2(8) NOT NULL,
-	MBER_CODE varchar2(7) NOT NULL,
-	LR_STR varchar2(8) NOT NULL,
-	LR_END varchar2(8) NOT NULL,
-	PRIMARY KEY (LOC_NO, LR_REGDATE)
+    loc_no varchar2 (3) not null,
+    lr_regdate varchar2 (8) not null,
+    mber_code varchar2 (7) not null,
+    lr_str varchar2 (8) not null,
+    lr_end varchar2 (8) not null,
+    primary key (loc_no, lr_regdate)
 );
 
 
-CREATE TABLE MEMBER
+create table member
 (
-	MBER_CODE varchar2(7) NOT NULL,
-	MBER_NM varchar2(30) NOT NULL,
-	MBER_GRADE varchar2(25) NOT NULL,
-	MBER_PHONE varchar2(13) NOT NULL,
-	MBER_BRTHDY varchar2(6) NOT NULL,
-	MBER_SEXDSTN varchar2(6) NOT NULL,
-	MBER_NOTE varchar2(150),
-	PRIMARY KEY (MBER_CODE)
+    mber_code varchar2 (7) not null,
+    mber_nm varchar2 (30) not null,
+    mber_grade varchar2 (25) not null,
+    mber_phone varchar2 (13) not null,
+    mber_brthdy varchar2 (6) not null,
+    mber_sexdstn varchar2 (6) not null,
+    mber_note varchar2 (150),
+    primary key (mber_code)
 );
 
 
-CREATE TABLE REGISTRATION
+create table registration
 (
-	MBER_CODE varchar2(7) NOT NULL,
-	REGIST_REGDATE varchar2(8) NOT NULL,
-	SCH_CODE varchar2(2) NOT NULL,
-	REGIST_STATE varchar2(9) NOT NULL,
-	REGIST_STR varchar2(8) NOT NULL,
-	REGIST_END varchar2(8) NOT NULL,
-	REGIST_MONTH varchar2(7) NOT NULL,
-	REGIST_AMOUNT varchar2(7) NOT NULL,
-	REGIST_NOTE varchar2(150),
-	REGIST_REFND char(1) DEFAULT 'N' NOT NULL,
-	REGIST_REFNDDATE varchar2(8),
-	PRIMARY KEY (MBER_CODE, REGIST_REGDATE)
+    mber_code varchar2 (7) not null,
+    regist_regdate varchar2 (8) not null,
+    sch_code varchar2 (2) not null,
+    regist_state varchar2 (9) not null,
+    regist_str varchar2 (8) not null,
+    regist_end varchar2 (8) not null,
+    regist_month varchar2 (7) not null,
+    regist_amount varchar2 (7) not null,
+    regist_note varchar2 (150),
+    regist_refnd char(1) default 'N' not null,
+    regist_refnddate varchar2 (8),
+    primary key (mber_code, regist_regdate)
 );
 
 
-CREATE TABLE SCHEDULE
+create table schedule
 (
-	SCH_CODE varchar2(2) NOT NULL,
-	SCH_ITEM varchar2(15) NOT NULL,
-	SCH_CLASS varchar2(15) NOT NULL,
-	SCH_TIME varchar2(11) NOT NULL,
-	SCH_DAY varchar2(25) NOT NULL,
-	SCH_PSNCPA varchar2(2) NOT NULL,
-	SCH_OPEN char(1) DEFAULT 'Y' NOT NULL,
-	PRIMARY KEY (SCH_CODE)
+    sch_code varchar2 (2) not null,
+    sch_item varchar2 (15) not null,
+    sch_class varchar2 (15) not null,
+    sch_time varchar2 (11) not null,
+    sch_day varchar2 (25) not null,
+    sch_psncpa varchar2 (2) not null,
+    sch_open char(1) default 'Y' not null,
+    primary key (sch_code)
 );
-
 
 
 /* Create Foreign Keys */
-
-ALTER TABLE CONTENT
-	ADD FOREIGN KEY (COM_CODE)
-	REFERENCES COMMON (COM_CODE)
+alter table content
+    add foreign key (com_code)
+        references common (com_code)
 ;
 
 
-ALTER TABLE LOCKER_REGISTRATION
-	ADD FOREIGN KEY (LOC_NO)
-	REFERENCES LOCKER (LOC_NO)
+alter table locker_registration
+    add foreign key (loc_no)
+        references locker (loc_no)
 ;
 
 
-ALTER TABLE LOCKER_REGISTRATION
-	ADD FOREIGN KEY (MBER_CODE)
-	REFERENCES MEMBER (MBER_CODE)
+alter table locker_registration
+    add foreign key (mber_code)
+        references member (mber_code)
 ;
 
 
-ALTER TABLE REGISTRATION
-	ADD FOREIGN KEY (MBER_CODE)
-	REFERENCES MEMBER (MBER_CODE)
+alter table registration
+    add foreign key (mber_code)
+        references member (mber_code)
 ;
 
 
-ALTER TABLE REGISTRATION
-	ADD FOREIGN KEY (SCH_CODE)
-	REFERENCES SCHEDULE (SCH_CODE)
+alter table registration
+    add foreign key (sch_code)
+        references schedule (sch_code)
 ;
-
-
-
