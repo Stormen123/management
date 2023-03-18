@@ -25,8 +25,8 @@
     <link type="text/css" rel="stylesheet" href="resources/css/font-awrsome.min.css">
     <link type="text/css" rel="stylesheet" href="resources/css/magnific-popup.css">
     <link type="text/css" rel="stylesheet" href="resources/css/one-music-icon.css">
-    <link type="text/css" rel="stylesheet" href="resources/css/update.css">
     <link type="text/css" rel="stylesheet" href="resources/style.css">
+    <link type="text/css" rel="stylesheet" href="resources/update.css">
 
 </head>
 

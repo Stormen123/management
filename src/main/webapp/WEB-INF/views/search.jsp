@@ -13,29 +13,29 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>관리자 페이지</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-    <jsp:include page="header.jsp" />
+	    <title>관리자 페이지</title>
 	
-	<!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/img/bg-img/swim-2.JPG);">
-        <div class="bradcumbContent">
-            <p>It`s Pool</p>
-            <h2>관리자 페이지</h2>
-        </div>
-    </section>
-    <!-- ##### Breadcumb Area End ##### -->
-    
-    <jsp:include page="adminMenu.jsp" />
+	    <!-- Favicon -->
+	    <link rel="icon" href="img/core-img/favicon.ico">
+	
+	    <!-- Stylesheet -->
+	    <link rel="stylesheet" href="style.css">
+	
+	</head>
+	
+	<body>
+	    <jsp:include page="header.jsp" />
+		
+		<!-- ##### Breadcumb Area Start ##### -->
+	    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/img/bg-img/swim-2.JPG);">
+	        <div class="bradcumbContent">
+	            <p>It`s Pool</p>
+	            <h2>관리자 페이지</h2>
+	        </div>
+	    </section>
+	    <!-- ##### Breadcumb Area End ##### -->
+	    
+	    <jsp:include page="adminMenu.jsp" />
 
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area section-padding-100 bg-img bg-fixed">
@@ -72,36 +72,23 @@
 		
         
     </section>
+     
 	
-		<table class="box_title">
-										    <thead>
-										      <tr>
-										        <th scope="col">회원코드</th>
-										        <th scope="col">이름</th>
-										        <th scope="col">등급</th>
-										        <th scope="col">성별</th>
-										        <th scope="col">생년월일</th>
-										        <th scope="col">전화번호</th>
-										        <th scope="col">메모</th>
-										      </tr>
-										    </thead>
-										    <tbody>
-										      <tr>
-										        <td>${MEMBER.mber_code}</td>
-										        <td>${MEMBER.mber_nm}</td>
-										        <td>${MEMBER.mber_grade}</td>
-										        <td>${MEMBER.mber_sexdstn}</td>
-										        <td>${MEMBER.mber_brthdy}</td>
-										        <td>${MEMBER.mber_phone}</td>
-										        <td>${MEMBER.mber_note}</td>
-										      </tr>
-										    </tbody>
-  										</table>
+	
+	<c:if test="${RESULT eq 'zero'}">
+		<p>hi</p>
+	</c:if>
     <!-- ##### Footer Area Start ##### -->
     <jsp:include page="footer.jsp" />
     <!-- ##### Footer Area Start ##### -->
 
   
 </body>
-
+<script>
+	$(function() {
+		<c:if test="${RESULT eq 'zero'}">
+		
+		</c:if>
+	});	
+</script>
 </html>

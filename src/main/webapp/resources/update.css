@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+
+.row1{
+	display:-ms-flexbox;
+	display:flex;
+	-ms-flex-wrap:wrap;
+	flex-wrap:wrap;
+	margin-right:-15px;
+	margin-left:-15px;
+	justify-content: center;
+}
+	
+#memdiv {
+	overflow:scroll; 
+	width:600px; 
+	height:200px; 
+	padding:10px; 
+	font-size: 12px;
+}
+
+#memtable {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+  }
+#memtable th, td {
+    border: 1px solid #444444;
+  }
+  
+  
+
+  .search-btn {
+  background-color: #fff;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 100px;
+  height: 30px;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize; }
+  
+  
+  #search-content {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  background-color: #f5f9fa;
+  border: 1px solid #d8d8d8;
+  padding: 50px 100px;
+  box-shadow: 0 2px 70px 0 rgba(0, 0, 0, 0.15);
+  text-align: center; }
+  

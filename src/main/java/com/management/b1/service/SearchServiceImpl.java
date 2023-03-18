@@ -39,7 +39,7 @@ public class SearchServiceImpl implements ISearchService{
 			mav.addObject("MEMBER", memberDAO.memberOne(memberDTO.getMber_code()));
 			mav.addObject("REGISTLIST", searchDAO.searchOne(memberDTO.getMber_code()));
 			mav.addObject("LOCREGISTLIST", searchDAO.locRegistSearch(memberDTO.getMber_code()));
-			mav.setViewName("search");
+			mav.setViewName("searchOK");
 			
 			return mav;
 		}
@@ -84,7 +84,7 @@ public class SearchServiceImpl implements ISearchService{
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("GRADELIST", searchDAO.gradeCountList(sch_code, search_date));
+		mav.addObject("GRADECOUNT", searchDAO.gradeCountList(sch_code, search_date));
 		mav.addObject("MEMBERLIST", searchDAO.schMemberList(sch_code, search_date));
 		mav.setViewName("search/search_memberList");
 		
@@ -127,6 +127,7 @@ public class SearchServiceImpl implements ISearchService{
 		
 		return mav;
 	}
+	
 
 	@Override
 	public ModelAndView lockerSearch_N() {

@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.management.b1.dto.AdminDTO" alias="AdminDTO"></typeAlias>
 		<typeAlias type="com.management.b1.dto.AmountDTO" alias="AmountDTO"></typeAlias>
 		<typeAlias type="com.management.b1.dto.CommonDTO" alias="CommonDTO"></typeAlias>
 		<typeAlias type="com.management.b1.dto.ContentDTO" alias="ContentDTO"></typeAlias>
